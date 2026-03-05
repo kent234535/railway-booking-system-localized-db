@@ -1,319 +1,274 @@
-# 🚄 Railway Ticket Booking System — Qt6 C++ Desktop Application with SQLite
+# 🚄 Railway Ticket Booking System — Qt6 C++ Desktop App with SQLite
 
 [![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://en.cppreference.com/w/cpp/17)
 [![Qt](https://img.shields.io/badge/Qt-6.9.1-green.svg)](https://www.qt.io/)
 [![SQLite](https://img.shields.io/badge/Database-SQLite-blue)](https://www.sqlite.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> A full-featured **railway ticket booking desktop application** built with **Qt6**, **C++17**, and **SQLite**. Features real-time seat management, route planning based on real Chinese railway maps, user authentication, admin dashboard, and a complete booking workflow — all in a native GUI.
+<div align="center">
 
-[English](#english) | [中文](#中文)
+### 🌐 Language / 语言切换
+
+<a href="#-english">📖 English</a> ｜ <a href="#-简体中文">📖 简体中文</a>
+
+</div>
 
 ---
 
-## English
+<!-- ==================== ENGLISH ==================== -->
+
+## 📖 English
 
 ### Overview
-A comprehensive railway ticket booking system built with **Qt6** and **C++17**, featuring a graphical user interface for both passengers and administrators. The system models **real Chinese railway station networks**, supports real-time ticket booking, Dijkstra-based shortest path routing, user management, and train administration with **SQLite** database integration.
+
+A full-featured **railway ticket booking desktop application** built with **Qt6**, **C++17**, and **SQLite**. The system models **real Chinese railway station networks**, supports **Dijkstra-based shortest-path routing**, real-time seat management, user authentication, admin dashboard, and a complete booking workflow — all in a native Qt Widgets GUI.
 
 ### Features
 
 #### For Passengers
-- **User Registration & Login**: Secure authentication with phone number and password validation
-- **Ticket Booking**: Search and book tickets between different stations
-- **Account Management**: View booking history and manage account balance
-- **Real-time Availability**: Check available seats for specific routes and times
-- **Balance Recharge**: Add funds to account for ticket purchases
+- **User Registration & Login** — Secure authentication with phone number & password validation
+- **Ticket Booking** — Search and book tickets between any two stations
+- **Account Management** — View booking history and manage account balance
+- **Real-time Availability** — Check available seats for specific routes and times
+- **Balance Recharge** — Add funds to account for ticket purchases
 
 #### For Administrators
-- **Train Management**: Add, modify, and suspend train services
-- **Route Configuration**: Set up station routes, schedules, and pricing
-- **System Monitoring**: Overview of all bookings and system status
-- **User Management**: Administrative oversight of user accounts
+- **Train Management** — Add, modify, and suspend train services
+- **Route Configuration** — Set up station routes, schedules, and pricing
+- **System Monitoring** — Overview of all bookings and system status
+- **User Management** — Administrative oversight of user accounts
 
-### Technical Specifications
+### Tech Stack
 
-#### Built With
-- **Framework**: Qt 6.9.1
-- **Language**: C++17
-- **Database**: SQLite
-- **GUI**: Qt Widgets
-- **Build System**: qmake
-
-#### System Requirements
-- **OS**: Windows (primary), Cross-platform compatible
-- **Qt Version**: 6.9.1 or higher
-- **Compiler**: MinGW64 (GCC)
-- **Database**: SQLite (bundled)
+| Layer | Technology |
+|-------|-----------|
+| **Language** | C++17 |
+| **GUI Framework** | Qt 6.9.1 (Widgets) |
+| **Database** | SQLite |
+| **Build System** | qmake |
+| **Compiler** | MinGW64 (GCC) |
+| **Platform** | Windows (primary), cross-platform compatible |
 
 ### Project Structure
+
 ```
-railway-system/
-├── kent.cpp                    # Main application source code
-├── railway.pro                 # Qt project file
-├── railway.exe                 # Compiled executable
-├── railway_system.db           # SQLite database file
-├── Makefile                    # Build configuration
-├── Qt6*.dll                    # Qt runtime libraries
-├── platforms/                  # Qt platform plugins
-│   └── qwindows.dll
-├── plugins/                    # Qt plugins
-│   └── sqldrivers/
-│       └── qsqlite.dll
-└── 未加密txt文件/              # Unencrypted data files
-    ├── admins.txt
-    ├── users.txt
-    ├── map.txt                 # Station network map
-    ├── new_trains.txt
-    └── suspended_trains.txt
+railway-booking-system-localized-db/
+├── README.md
+├── LICENSE
+└── src/                              # Source & runtime directory
+    ├── kent.cpp                      # Main application source code
+    ├── railway.pro                   # Qt project file
+    ├── db_viewer.cpp                 # Database viewer utility
+    ├── railway.exe                   # Compiled executable (Windows)
+    ├── railway_system.db             # SQLite database
+    ├── Makefile                      # Build configuration
+    ├── Qt6*.dll                      # Qt runtime libraries
+    ├── platforms/                    # Qt platform plugins
+    │   └── qwindows.dll
+    ├── plugins/sqldrivers/           # SQLite driver plugin
+    │   └── qsqlite.dll
+    └── data/                         # Plain-text data files
+        ├── admins.txt
+        ├── users.txt
+        ├── map.txt                   # Station network map
+        ├── new_trains.txt
+        └── suspended_trains.txt
 ```
 
-### Installation & Setup
+### Quick Start
 
 #### Prerequisites
-1. Install Qt 6.9.1 or later
-2. Install MinGW64 compiler
-3. Ensure SQLite support is available
+1. Install **Qt 6.9.1** or later
+2. Install **MinGW64** compiler
+3. SQLite support is bundled with Qt
 
-#### Building from Source
+#### Build & Run
 ```bash
-# Clone the repository
-git clone <repository-url>
-cd railway-system
+git clone https://github.com/kent234535/railway-booking-system-localized-db.git
+cd railway-booking-system-localized-db/src
 
 # Build with qmake
 qmake railway.pro
 make
 
-# Or use Qt Creator
-# Open railway.pro in Qt Creator and build
-```
-
-#### Running the Application
-```bash
-# Run the executable
+# Run
 ./railway.exe
-
-# Or on Windows
-railway.exe
 ```
 
-### Usage Guide
+Or open `railway.pro` in **Qt Creator** and click Build.
 
-#### First Time Setup
-1. Launch the application
-2. The system will automatically initialize the SQLite database
-3. Default data will be migrated from text files if available
+### Usage
 
 #### For Passengers
-1. **Registration**: Create account with phone number, password, name, and ID
-2. **Login**: Use phone number and password
-3. **Search Tickets**: Select origin and destination stations
-4. **Book Tickets**: Choose train and confirm booking
-5. **Manage Account**: View trips and recharge balance
+1. **Register** — Create account with phone number, password, name, and ID
+2. **Login** — Use phone number and password
+3. **Search** — Select origin and destination stations
+4. **Book** — Choose train and confirm booking
+5. **Manage** — View trips, recharge balance
 
 #### For Administrators
-1. **Admin Login**: Use administrator credentials
-2. **Manage Trains**: Add new routes, modify schedules, suspend services
-3. **Monitor System**: View all bookings and system statistics
+1. **Admin Login** — Use administrator credentials
+2. **Manage Trains** — Add routes, modify schedules, suspend services
+3. **Monitor** — View all bookings and system statistics
 
 ### Database Schema
 
-#### Tables
-- **users**: User account information and balance
-- **admins**: Administrator accounts
-- **trains**: Train schedules, routes, and pricing
-- **suspended_trains**: List of suspended train services
+| Table | Description |
+|-------|-------------|
+| `users` | User accounts, balances, booking history |
+| `admins` | Administrator accounts |
+| `trains` | Schedules, routes, pricing, seat counts |
+| `suspended_trains` | Suspended train services |
 
-### Key Features Detailed
-
-#### Security
-- Password validation (minimum 8 characters, mixed case, numbers)
+### Security
+- Password validation: min 8 chars, mixed case, numbers
 - Phone number format validation
-- Secure user authentication
-
-#### Booking System
-- Real-time seat availability checking
-- Dynamic pricing based on distance
-- Booking history tracking
-- Balance management
-
-#### Administrative Tools
-- Complete train schedule management
-- Route configuration with station mapping
-- Service suspension capabilities
-- System oversight and monitoring
+- Encrypted credential storage (`.enc` files)
 
 ### Contributing
 1. Fork the repository
-2. Create a feature branch
+2. Create a feature branch (`git checkout -b feature/amazing`)
 3. Commit your changes
 4. Push to the branch
-5. Create a Pull Request
+5. Open a Pull Request
 
 ### License
-This project is available under the MIT License.
+
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 中文
+<!-- ==================== 中文 ==================== -->
+
+## 📖 简体中文
 
 ### 项目概述
-基于 **Qt6** 和 **C++17** 开发的综合性铁路售票桌面系统，使用 **真实中国铁路站点网络** 数据建模，为乘客和管理员提供原生图形化界面。系统支持 **Dijkstra 最短路径算法** 路线规划、实时购票、用户管理和列车调度，后端集成 **SQLite** 数据库。
+
+基于 **Qt6** 和 **C++17** 开发的综合性 **铁路售票桌面系统**，使用 **真实中国铁路站点网络** 数据建模。系统支持 **Dijkstra 最短路径算法** 路线规划、实时座位管理、用户认证、管理员后台，以及完整的购票流程 —— 全部基于原生 Qt Widgets 图形界面，后端集成 **SQLite** 数据库。
 
 ### 功能特性
 
-#### 乘客功能
-- **用户注册登录**: 安全的手机号和密码验证系统
-- **车票预订**: 搜索并预订不同站点间的车票
-- **账户管理**: 查看订票历史和管理账户余额
-- **实时查询**: 检查特定路线和时间的可用座位
-- **余额充值**: 为购票向账户添加资金
+#### 🧑‍💼 乘客功能
+- **用户注册与登录** — 安全的手机号+密码验证系统
+- **车票预订** — 搜索并预订任意两站间的车票
+- **账户管理** — 查看订票历史、管理余额
+- **实时查询** — 检查特定路线和时间的可用座位
+- **余额充值** — 向账户充值以购票
 
-#### 管理员功能
-- **列车管理**: 添加、修改和停运列车服务
-- **路线配置**: 设置站点路线、时刻表和定价
-- **系统监控**: 查看所有预订和系统状态
-- **用户管理**: 管理员用户账户监督
+#### 🔧 管理员功能
+- **列车管理** — 添加、修改和停运列车服务
+- **路线配置** — 设置站点路线、时刻表和定价
+- **系统监控** — 查看所有预订和系统状态
+- **用户管理** — 管理员账户监督
 
-### 技术规格
+### 技术栈
 
-#### 开发技术
-- **框架**: Qt 6.9.1
-- **编程语言**: C++17
-- **数据库**: SQLite
-- **图形界面**: Qt Widgets
-- **构建系统**: qmake
-
-#### 系统要求
-- **操作系统**: Windows（主要）, 跨平台兼容
-- **Qt版本**: 6.9.1或更高
-- **编译器**: MinGW64 (GCC)
-- **数据库**: SQLite（内置）
+| 层级 | 技术 |
+|------|------|
+| **语言** | C++17 |
+| **GUI 框架** | Qt 6.9.1 (Widgets) |
+| **数据库** | SQLite |
+| **构建系统** | qmake |
+| **编译器** | MinGW64 (GCC) |
+| **平台** | Windows（主要），可跨平台兼容 |
 
 ### 项目结构
+
 ```
-railway-system/
-├── kent.cpp                    # 主程序源代码
-├── railway.pro                 # Qt项目文件
-├── railway.exe                 # 编译后的可执行文件
-├── railway_system.db           # SQLite数据库文件
-├── Makefile                    # 构建配置文件
-├── Qt6*.dll                    # Qt运行时库
-├── platforms/                  # Qt平台插件
-│   └── qwindows.dll
-├── plugins/                    # Qt插件
-│   └── sqldrivers/
-│       └── qsqlite.dll
-└── 未加密txt文件/              # 未加密数据文件
-    ├── admins.txt              # 管理员数据
-    ├── users.txt               # 用户数据
-    ├── map.txt                 # 站点网络地图
-    ├── new_trains.txt          # 新增列车
-    └── suspended_trains.txt    # 停运列车
+railway-booking-system-localized-db/
+├── README.md
+├── LICENSE
+└── src/                              # 源码 & 运行时目录
+    ├── kent.cpp                      # 主程序源代码
+    ├── railway.pro                   # Qt 项目文件
+    ├── db_viewer.cpp                 # 数据库查看工具
+    ├── railway.exe                   # 编译后的可执行文件
+    ├── railway_system.db             # SQLite 数据库
+    ├── Makefile                      # 构建配置
+    ├── Qt6*.dll                      # Qt 运行时库
+    ├── platforms/                    # Qt 平台插件
+    │   └── qwindows.dll
+    ├── plugins/sqldrivers/           # SQLite 驱动插件
+    │   └── qsqlite.dll
+    └── data/                         # 明文数据文件
+        ├── admins.txt                # 管理员数据
+        ├── users.txt                 # 用户数据
+        ├── map.txt                   # 站点网络地图
+        ├── new_trains.txt            # 新增列车
+        └── suspended_trains.txt      # 停运列车
 ```
 
-### 安装和设置
+### 快速开始
 
 #### 前置要求
-1. 安装Qt 6.9.1或更高版本
-2. 安装MinGW64编译器
-3. 确保SQLite支持可用
+1. 安装 **Qt 6.9.1** 或更高版本
+2. 安装 **MinGW64** 编译器
+3. SQLite 已随 Qt 捆绑
 
-#### 从源码构建
+#### 构建 & 运行
 ```bash
-# 克隆仓库
-git clone <repository-url>
-cd railway-system
+git clone https://github.com/kent234535/railway-booking-system-localized-db.git
+cd railway-booking-system-localized-db/src
 
-# 使用qmake构建
+# 使用 qmake 构建
 qmake railway.pro
 make
 
-# 或使用Qt Creator
-# 在Qt Creator中打开railway.pro并构建
-```
-
-#### 运行应用程序
-```bash
-# 运行可执行文件
+# 运行
 ./railway.exe
-
-# 或在Windows上
-railway.exe
 ```
+
+或者在 **Qt Creator** 中打开 `railway.pro` 直接构建运行。
 
 ### 使用指南
 
-#### 首次设置
-1. 启动应用程序
-2. 系统将自动初始化SQLite数据库
-3. 如果可用，默认数据将从文本文件迁移
-
 #### 乘客用户
-1. **注册**: 使用手机号、密码、姓名和身份证创建账户
-2. **登录**: 使用手机号和密码登录
-3. **搜索车票**: 选择出发和到达站点
-4. **预订车票**: 选择列车并确认预订
-5. **管理账户**: 查看行程和充值余额
+1. **注册** — 使用手机号、密码、姓名和身份证创建账户
+2. **登录** — 使用手机号和密码
+3. **搜索** — 选择出发站和到达站
+4. **预订** — 选择列车并确认
+5. **管理** — 查看行程、充值余额
 
 #### 管理员用户
-1. **管理员登录**: 使用管理员凭据登录
-2. **管理列车**: 添加新路线、修改时刻表、停运服务
-3. **监控系统**: 查看所有预订和系统统计
+1. **管理员登录** — 使用管理员凭据
+2. **管理列车** — 添加新路线、修改时刻表、停运服务
+3. **系统监控** — 查看所有预订和系统统计
 
 ### 数据库架构
 
-#### 数据表
-- **users**: 用户账户信息和余额
-- **admins**: 管理员账户
-- **trains**: 列车时刻表、路线和定价
-- **suspended_trains**: 停运列车服务列表
+| 数据表 | 说明 |
+|--------|------|
+| `users` | 用户账户、余额、购票记录 |
+| `admins` | 管理员账户 |
+| `trains` | 时刻表、路线、定价、座位数 |
+| `suspended_trains` | 停运列车列表 |
 
-### 主要功能详解
-
-#### 安全性
-- 密码验证（最少8个字符，大小写混合，包含数字）
+### 安全性
+- 密码验证：最少 8 字符，大小写混合，包含数字
 - 手机号格式验证
-- 安全的用户身份验证
-
-#### 订票系统
-- 实时座位可用性检查
-- 基于距离的动态定价
-- 订票历史跟踪
-- 余额管理
-
-#### 管理工具
-- 完整的列车时刻表管理
-- 站点映射的路线配置
-- 服务停运功能
-- 系统监督和监控
+- 凭据加密存储（`.enc` 文件）
 
 ### 贡献指南
-1. Fork此仓库
-2. 创建功能分支
-3. 提交您的更改
+1. Fork 此仓库
+2. 创建功能分支 (`git checkout -b feature/amazing`)
+3. 提交更改
 4. 推送到分支
-5. 创建Pull Request
+5. 创建 Pull Request
 
 ### 许可证
-此项目基于MIT许可证提供。
 
-### 联系方式
-如有问题或建议，请通过以下方式联系：
-- 提交Issue到GitHub仓库
-- 发送邮件到项目维护者
-
-### 版本历史
-- **v1.0.0**: 初始版本，包含基本的购票和管理功能
-- 数据库集成和Qt界面实现
-- 支持多站点路线规划
-
-### 致谢
-感谢Qt框架提供的强大GUI开发工具，以及SQLite提供的轻量级数据库解决方案。
+MIT 许可证 — 详见 [LICENSE](LICENSE)。
 
 ---
 
-## 🏷️ Keywords / 关键词
+## 🏷️ Keywords
 
 `railway booking system` · `train ticket` · `Qt6` · `C++17` · `SQLite` · `desktop application` · `GUI` · `Dijkstra algorithm` · `route planning` · `铁路售票系统` · `火车票` · `桌面应用`
+
+---
+
+<div align="center">
+
+⭐ **Star this repo if you find it useful!** ⭐
+
+</div>
