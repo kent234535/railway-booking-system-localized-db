@@ -1,12 +1,20 @@
-这个就是把文件读写换成SQLite管理数据的版本，其他的和另外一个项目没区别
-# Railway Ticket System / 铁路售票系统
+# 🚄 Railway Ticket Booking System — Qt6 C++ Desktop Application with SQLite
+
+[![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](https://en.cppreference.com/w/cpp/17)
+[![Qt](https://img.shields.io/badge/Qt-6.9.1-green.svg)](https://www.qt.io/)
+[![SQLite](https://img.shields.io/badge/Database-SQLite-blue)](https://www.sqlite.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> A full-featured **railway ticket booking desktop application** built with **Qt6**, **C++17**, and **SQLite**. Features real-time seat management, route planning based on real Chinese railway maps, user authentication, admin dashboard, and a complete booking workflow — all in a native GUI.
 
 [English](#english) | [中文](#中文)
+
+---
 
 ## English
 
 ### Overview
-A comprehensive railway ticket booking system built with Qt6 and C++, featuring a graphical user interface for both passengers and administrators. The system supports real-time ticket booking, user management, and train administration with SQLite database integration.
+A comprehensive railway ticket booking system built with **Qt6** and **C++17**, featuring a graphical user interface for both passengers and administrators. The system models **real Chinese railway station networks**, supports real-time ticket booking, Dijkstra-based shortest path routing, user management, and train administration with **SQLite** database integration.
 
 ### Features
 
@@ -151,7 +159,7 @@ This project is available under the MIT License.
 ## 中文
 
 ### 项目概述
-这是一个基于Qt6和C++开发的综合性铁路售票系统，为乘客和管理员提供图形化用户界面。系统支持实时购票、用户管理和列车管理，集成SQLite数据库。
+基于 **Qt6** 和 **C++17** 开发的综合性铁路售票桌面系统，使用 **真实中国铁路站点网络** 数据建模，为乘客和管理员提供原生图形化界面。系统支持 **Dijkstra 最短路径算法** 路线规划、实时购票、用户管理和列车调度，后端集成 **SQLite** 数据库。
 
 ### 功能特性
 
@@ -303,3 +311,9 @@ railway.exe
 
 ### 致谢
 感谢Qt框架提供的强大GUI开发工具，以及SQLite提供的轻量级数据库解决方案。
+
+---
+
+## 🏷️ Keywords / 关键词
+
+`railway booking system` · `train ticket` · `Qt6` · `C++17` · `SQLite` · `desktop application` · `GUI` · `Dijkstra algorithm` · `route planning` · `铁路售票系统` · `火车票` · `桌面应用`
