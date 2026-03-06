@@ -80,22 +80,38 @@ railway-booking-system-localized-db/
 
 ## 快速开始
 
+> 标有 🔑 的步骤需要 **管理员权限** — 右键 → **以管理员身份运行**
+
 ### 前置要求
-1. 安装 **Qt 6.9.1** 或更高版本
-2. 安装 **MinGW64** 编译器
-3. SQLite 已随 Qt 捆绑
+
+1. 🔑 安装 **Qt 6.9.1** 或更高版本（安装程序需要管理员权限）
+2. 🔑 安装 **MinGW64** 编译器（Qt 安装程序中可一并勾选）
+3. 🔑 将 Qt 和 MinGW 添加到系统 `PATH`（以 **管理员身份运行 PowerShell**）：
+   ```powershell
+   # PowerShell（管理员）
+   [Environment]::SetEnvironmentVariable(
+       "Path",
+       $env:Path + ";C:\Qt\6.9.1\mingw_64\bin;C:\Qt\Tools\mingw1310_64\bin",
+       "Machine"
+   )
+   ```
+   > 请根据你的 Qt 实际安装路径修改上述目录。
+4. SQLite 已随 Qt 捆绑，无需额外配置
 
 ### 构建 & 运行
-```bash
+
+构建和运行无需管理员权限。
+
+```cmd
 git clone https://github.com/kent234535/railway-booking-system-localized-db.git
-cd railway-booking-system-localized-db/src
+cd railway-booking-system-localized-db\src
 
-# 使用 qmake 构建
+:: 使用 qmake + MinGW 构建
 qmake railway.pro
-make
+mingw32-make
 
-# 运行
-./railway.exe
+:: 运行
+railway.exe
 ```
 
 或者在 **Qt Creator** 中打开 `railway.pro` 直接构建运行。
